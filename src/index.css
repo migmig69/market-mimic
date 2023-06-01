@@ -1,0 +1,15 @@
+@tailwind base;
+small {
+  @apply normal-case;
+}
+@tailwind components;
+@tailwind utilities;
+
+::-webkit-scrollbar {
+  width: 0.2rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(169, 169, 169, 0.342);
+  outline: 1px solid rgba(112, 128, 144, 0.308);
+}

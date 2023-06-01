@@ -1,0 +1,283 @@
+import { SpeedType } from "./types";
+
+export const Speeds: SpeedType = [
+  { title: "Slow", value: 500 },
+  { title: "Normal", value: 350 },
+  { title: "Fast", value: 200 },
+  { title: "Faster", value: 80 },
+];
+
+const binanceTimeFrames = [
+  {
+    multiplier: 1,
+    timespan: "m",
+    text: "1m",
+    req: "1m",
+  },
+  {
+    multiplier: 3,
+    timespan: "m",
+    text: "3m",
+    req: "3m",
+  },
+  {
+    multiplier: 5,
+    timespan: "m",
+    text: "5m",
+    req: "5m",
+  },
+  {
+    multiplier: 15,
+    timespan: "m",
+    text: "15m",
+    req: "15m",
+  },
+  {
+    multiplier: 30,
+    timespan: "m",
+    text: "30m",
+    req: "30m",
+  },
+  {
+    multiplier: 1,
+    timespan: "h",
+    text: "1h",
+    req: "1h",
+  },
+  {
+    multiplier: 2,
+    timespan: "h",
+    text: "2h",
+    req: "2h",
+  },
+  {
+    multiplier: 4,
+    timespan: "h",
+    text: "4h",
+    req: "4h",
+  },
+  {
+    multiplier: 6,
+    timespan: "h",
+    text: "6h",
+    req: "6h",
+  },
+  {
+    multiplier: 8,
+    timespan: "h",
+    text: "8h",
+    req: "8h",
+  },
+  {
+    multiplier: 12,
+    timespan: "h",
+    text: "12h",
+    req: "12h",
+  },
+  {
+    multiplier: 1,
+    timespan: "d",
+    text: "1D",
+    req: "1d",
+  },
+  {
+    multiplier: 3,
+    timespan: "d",
+    text: "3D",
+    req: "3d",
+  },
+  {
+    multiplier: 1,
+    timespan: "w",
+    text: "1W",
+    req: "1w",
+  },
+  {
+    multiplier: 1,
+    timespan: "M",
+    text: "1M",
+    req: "1M",
+  },
+];
+
+const byBitTimeFrames = [
+  {
+    multiplier: 1,
+    timespan: "m",
+    text: "1m",
+    req: "1",
+  },
+  {
+    multiplier: 3,
+    timespan: "m",
+    text: "3m",
+    req: "3",
+  },
+  {
+    multiplier: 5,
+    timespan: "m",
+    text: "5m",
+    req: "5",
+  },
+  {
+    multiplier: 15,
+    timespan: "m",
+    text: "15m",
+    req: "15",
+  },
+  {
+    multiplier: 30,
+    timespan: "m",
+    text: "30m",
+    req: "30",
+  },
+  {
+    multiplier: 60,
+    timespan: "m",
+    text: "1h",
+    req: "60",
+  },
+  {
+    multiplier: 120,
+    timespan: "m",
+    text: "2h",
+    req: "120",
+  },
+  {
+    multiplier: 240,
+    timespan: "m",
+    text: "4h",
+    req: "240",
+  },
+  {
+    multiplier: 360,
+    timespan: "m",
+    text: "6h",
+    req: "360",
+  },
+  {
+    multiplier: 720,
+    timespan: "m",
+    text: "12h",
+    req: "720",
+  },
+  {
+    multiplier: 1,
+    timespan: "d",
+    text: "1D",
+    req: "D",
+  },
+  {
+    multiplier: 1,
+    timespan: "w",
+    text: "1W",
+    req: "W",
+  },
+  {
+    multiplier: 1,
+    timespan: "M",
+    text: "1M",
+    req: "M",
+  },
+];
+
+export const Exchanges = {
+  BinanceSpot: {
+    desc: "Binance Spot UIKlines",
+    limit: 1000,
+    // limit: 50,
+    symbolUrl: "https://api.binance.com/api/v3/exchangeInfo?permissions=SPOT",
+    baseUrl: "https://api.binance.com/api/v3/uiKlines",
+    timeFrames: [
+      {
+        multiplier: 1,
+        timespan: "s",
+        text: "1s",
+        req: "1s",
+      },
+      ...binanceTimeFrames,
+    ],
+    defaultTimeFrame: {
+      multiplier: 1,
+      timespan: "d",
+      text: "1D",
+      req: "1d",
+    },
+    extraQuery: "",
+  },
+  BinancePerpetual: {
+    desc: "Binance USDⓈ-M Futures",
+    limit: 1500,
+    // limit: 50,
+    symbolUrl: "https://fapi.binance.com/fapi/v1/exchangeInfo",
+    baseUrl: "https://fapi.binance.com/fapi/v1/klines",
+    timeFrames: binanceTimeFrames,
+    defaultTimeFrame: {
+      multiplier: 1,
+      timespan: "d",
+      text: "1D",
+      req: "1d",
+    },
+    extraQuery: "",
+  },
+  BinancePerpetualCoin: {
+    desc: "Binance COIN-M Futures",
+    limit: 1500,
+    // limit: 50,
+    symbolUrl: "https://dapi.binance.com/dapi/v1/exchangeInfo",
+    baseUrl: "https://dapi.binance.com/dapi/v1/klines",
+    timeFrames: binanceTimeFrames,
+    defaultTimeFrame: {
+      multiplier: 1,
+      timespan: "d",
+      text: "1D",
+      req: "1d",
+    },
+    extraQuery: "",
+  },
+  ByBitSpot: {
+    desc: "ByBit Spot",
+    limit: 200,
+    // limit: 50,
+    symbolUrl: "https://api.bybit.com/v5/market/tickers?category=spot",
+    baseUrl: "https://api.bybit.com/v5/market/kline?category=spot",
+    timeFrames: byBitTimeFrames,
+    defaultTimeFrame: {
+      multiplier: 1,
+      timespan: "d",
+      text: "1D",
+      req: "D",
+    },
+    extraQuery: "",
+  },
+  ByBitPerpetual: {
+    desc: "ByBit Futures",
+    limit: 200,
+    // limit: 50,
+    symbolUrl: "https://api.bybit.com/v5/market/tickers?category=linear",
+    baseUrl: "https://api.bybit.com/v5/market/kline?category=linear",
+    timeFrames: byBitTimeFrames,
+    defaultTimeFrame: {
+      multiplier: 1,
+      timespan: "d",
+      text: "1D",
+      req: "D",
+    },
+    extraQuery: "",
+  },
+  ByBitInverse: {
+    desc: "ByBit Inverse",
+    limit: 200,
+    // limit: 50,
+    symbolUrl: "https://api.bybit.com/v5/market/tickers?category=inverse",
+    baseUrl: "https://api.bybit.com/v5/market/kline?category=inverse",
+    timeFrames: byBitTimeFrames,
+    defaultTimeFrame: {
+      multiplier: 1,
+      timespan: "d",
+      text: "1D",
+      req: "D",
+    },
+    extraQuery: "",
+  },
+};
