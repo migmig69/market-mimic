@@ -1,4 +1,7 @@
 ## Market MiMic is A Simple Crypto Bar Replay
+
+![Market MiMic](https://github.com/migmig69/market-mimic/blob/main/intro.gif?raw=true)
+
 ---
 ## API Supported:
 
